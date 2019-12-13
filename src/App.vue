@@ -9,6 +9,18 @@
   </div>
 </template>
 
+<script>
+export default {
+  mounted() {
+
+    this.$bus.$on('gerer-la-lumiere-du-salon',() => {
+        this.$store.commit('allumerLumiereDuSalon');
+    });
+  
+  }
+}
+</script>
+
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

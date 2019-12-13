@@ -4,7 +4,12 @@
 		<p>Il y a un canapé.</p>
 		<p>
 			<label>
-				<input type="checkbox" v-model="lumiereAllumee"> La lumière est allumée
+				<input 
+					type="checkbox" 
+					:checked="$store.state.lumiereDuSalonAllumee" 
+					@change="allumerLumiere()"
+				> 
+					La lumière est allumée
 			</label>
 		</p>
 		<img width="300" src="@/assets/salon.jpg">
@@ -15,9 +20,9 @@
 <script>
 export default {
   name: 'Salon',
-  data() {
-  	return {
-  		lumiereAllumee:false
+  methods : {
+  	allumerLumiere() {
+  		this.$store.commit('allumerLumiereDuSalon');
   	}
   },
   mounted() {
